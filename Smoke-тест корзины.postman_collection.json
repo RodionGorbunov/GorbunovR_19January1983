@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "24f2419f-96aa-4484-a144-eba5ebf0ac0e",
+		"name": "Смоук-тест корзины Алтай-травы",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31368643"
+	},
+	"item": [
+		{
+			"name": "Добавление товара в корзину",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded; charset=UTF-8",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "product_id={{Product_ID}}&this_listId=product_cart&parent_product=667&LANG_key=ru&S_wh=1&S_CID=f84d3a3af377ddbc1ebd3c6135fe84dd&S_cur_code=rub&S_koef=1&quantity=1&S_hint_code=&S_customerID=",
+					"options": {
+						"raw": {
+							"language": "html"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Base_url}}/add_products_to_cart_from_preview.php",
+					"host": [
+						"{{Base_url}}"
+					],
+					"path": [
+						"add_products_to_cart_from_preview.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Изменение количества товара в корзине",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded; charset=UTF-8",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "itemID=533466&quantity=4&action=update_quantity&LANG_key=ru&S_wh=1&S_CID=f84d3a3af377ddbc1ebd3c6135fe84dd&S_cur_code=rub&S_koef=1&S_hint_code=&S_customerID=",
+					"options": {
+						"raw": {
+							"language": "html"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Base_url}}/action_with_basket_on_cart_page.php",
+					"host": [
+						"{{Base_url}}"
+					],
+					"path": [
+						"action_with_basket_on_cart_page.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удаление товара из корзины",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded; charset=UTF-8",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Token}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "product_id={{Product_ID}}&LANG_key=ru&S_wh=1&S_CID=f84d3a3af377ddbc1ebd3c6135fe84dd&S_cur_code=rub&S_koef=1&S_hint_code=&S_customerID=",
+					"options": {
+						"raw": {
+							"language": "html"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Base_url}}/delete_products_from_cart_preview.php",
+					"host": [
+						"{{Base_url}}"
+					],
+					"path": [
+						"delete_products_from_cart_preview.php"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Base_url",
+			"value": "https://altaivita.ru/engine/cart",
+			"type": "string"
+		},
+		{
+			"key": "Product_ID",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
